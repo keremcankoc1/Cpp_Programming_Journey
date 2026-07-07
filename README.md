@@ -77,4 +77,21 @@ A fitness club membership management simulation that demonstrates the use of cla
 * **Boundary Testing**: Implements strict `<` boundary checks to accurately enforce maximum capacity limits without off-by-one errors.
 
 ---
+
+## 📡 Live Telemetry Logger & Gear Simulator (`Telemetry Logger`)
+
+A real-time telemetry recording system designed to simulate an F1 car's sequential gear shifts during a race stint. This project focuses on safe file handling, resource management, and state-machine logic to generate and log race data.
+
+### 🛠 Features
+* **Sequential Gear Simulation**: Utilizes a constrained `switch-case` state machine to simulate realistic upshifts and downshifts (Gears 1-8), preventing impossible mechanical jumps.
+* **High-Frequency Telemetry Loop**: Runs a continuous simulation representing 40 consecutive moments of a single lap, calculating and logging dynamic gearbox telemetry for each specific snapshot.
+* **Safe File I/O Management**: Automatically creates and manages a dedicated `race.txt` log file, outputting system success/failure states directly to the terminal.
+
+### 🔧 Technical Details
+* **Concepts Used**: File Handling (`std::fstream`), Object-Oriented Encapsulation, State Machines, Random Number Generation logic.
+* **Modern C++ Practices**: Implements strong RAII (Resource Acquisition Is Initialization) principles. The file stream is safely opened in the constructor and strictly closed in the destructor (`~telemetryLogger`), ensuring zero resource leaks even if the program terminates unexpectedly.
+* **Data Formatting**: Converts raw integer-based mechanical states into formatted string outputs for clean, readable log files.
+
+---
+
 *Future goal: Adapting these algorithms and OOP structures for real-time F1 telemetry and simulation data.* 🏁
