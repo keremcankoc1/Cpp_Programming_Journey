@@ -94,4 +94,114 @@ A real-time telemetry recording system designed to simulate an F1 car's sequenti
 
 ---
 
+## 🚗 Garage Management System
+
+A simple C++ console application created as part of my **C++ Learning Journey**.
+
+This project focuses on practicing object-oriented programming and modern C++ fundamentals by implementing a small garage management system where drivers and cars can be stored and queried.
+
+---
+
+### Features
+
+- ➕ Add new drivers
+- 🚘 Add new cars
+- 📋 List all drivers
+- 📋 List all cars
+- 🔍 Display all cars belonging to a selected driver
+- 🖥️ Console-based menu system
+
+---
+
+### Concepts Practiced
+
+This project was written to reinforce the following C++ topics:
+
+- Classes & Objects
+- Constructors
+- Encapsulation
+- Getter functions
+- `const` member functions
+- `std::vector`
+- `using` aliases
+- Static class members
+- Range-based `for`
+- `getline()`
+- Input buffer management (`std::cin.ignore`)
+- Function decomposition
+- Basic object relationships
+
+---
+
+### Project Structure
+
+```
+Garage
+│
+├── Driver
+│     ├── id
+│     ├── name
+│     ├── team
+│     └── age
+│
+├── Car
+│     ├── ownerId
+│     ├── model
+│     ├── plate
+│     └── year
+│
+└── Menu
+      ├── Add Driver
+      ├── Add Car
+      ├── List Drivers
+      ├── List Cars
+      └── Show Driver's Cars
+```
+
+---
+
+### Example
+
+```
+=============================================
+1. Add Driver
+2. Add Car
+3. List All Drivers
+4. List All Cars
+5. List One Driver's Cars
+6. Exit
+=============================================
+```
+
+---
+
+### Purpose
+
+This is **not intended to be a production-ready project.**
+
+The main goal is to gain hands-on experience with C++ syntax, object-oriented programming, and writing cleaner, more modular code before moving on to larger projects.
+
+---
+
+### Future Improvements
+
+- [ ] Driver deletion
+- [ ] Car deletion
+- [ ] Driver editing
+- [ ] Car editing
+- [ ] File saving/loading
+- [ ] Unique ID validation
+- [ ] Error handling for invalid input
+- [ ] Split into header/source files
+- [ ] Use enums where appropriate
+- [ ] Refactor into a larger Garage class
+
+---
+
+### Learning Journey
+
+This project is part of my **Cpp_Learning_Journey** repository, where I document my progress while learning Modern C++ through small projects and exercises.
+
+---
+
 *Future goal: Adapting these algorithms and OOP structures for real-time F1 telemetry and simulation data.* 🏁
