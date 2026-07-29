@@ -204,4 +204,36 @@ This project is part of my **Cpp_Learning_Journey** repository, where I document
 
 ---
 
+## F1 Grid System 🏎️
+
+A simple F1 driver management system written in C++.
+
+This project was created to practice Modern C++ concepts and Object-Oriented Programming.
+
+### What Does It Do?
+
+- Add drivers to the grid
+- Display driver information
+- Select a specific driver
+- Update driver points
+- Store driver data using vectors
+
+### What I Learned
+
+While creating this project, I practiced:
+
+- Classes and Objects
+- Encapsulation
+- Constructors
+- Getter functions
+- enum class
+- constexpr
+- std::vector
+- Range-based for loops
+- const member functions
+- static_cast
+- Object management with vectors
+
+This project is a step in my C++ learning journey and helps me understand how Modern C++ features are used in a real-world style application.
+
 *Future goal: Adapting these algorithms and OOP structures for real-time F1 telemetry and simulation data.* 🏁
