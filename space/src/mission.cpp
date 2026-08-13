@@ -23,7 +23,7 @@ std::string Mission::MissionTypeToString(MissionType missionType) const{
         case MissionType::Mining : return "Mining";
         case MissionType::Research : return "Research";
         case MissionType::Default : return "Default";
-
+        default: return "Unknown";
     }
 }
 
