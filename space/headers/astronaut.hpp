@@ -13,4 +13,8 @@ class Astronaut{
         void showAstronautInfo() const;
         int setAstronautExperience(int amount);
 
+        int getAstronautId();
+        int getAstronautAge();
+        int getAstronautName();
+        int getAstronautExperience();
 };

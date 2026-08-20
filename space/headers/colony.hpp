@@ -22,4 +22,8 @@ class Colony{
         void updateSource();
         int getColonyId() const;
         std::string getColonyName()const;
+
+        Astronaut *findAstronaut(int astronautId);
+        Rover *findRover(int roverId);
+        Resource *findSource(int sourceId);
 };

@@ -16,6 +16,22 @@ void Astronaut::showAstronautInfo() const{
     std::cout << "Experience: " << experience << '\n';
 }
 
+int Astronaut::getAstronautId(){
+    return id;
+}
+
+int Astronaut::getAstronautAge(){
+    return age;
+}
+
+std::string Astronaut::getAstronautName(){
+    return name;
+}
+
+int Astronaut::getAstronautExperience(){
+    return experience;
+}
+
 int Astronaut::setAstronautExperience(int amount){
     experience += amount;
     return experience;

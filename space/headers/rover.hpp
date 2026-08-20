@@ -13,4 +13,9 @@ class Rover{
         float setEnergyLevel(float amount);
         void infoSituation();
         void doMission();
+
+        int getRoverId();
+        std::string getRoverModel();
+        bool getRoverActivate();
+        float getRoverEnergyLevel();
 };

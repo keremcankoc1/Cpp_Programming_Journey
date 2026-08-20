@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <headers/colonyManagement.hpp>
+#include "../headers/colonyManagement.hpp"
 #include <string>
 
 void ColonyManagement::addColonies(){
@@ -31,32 +31,23 @@ void ColonyManagement::showColonySituation(int colonyId) const{
     
 }
 
-Colony &ColonyManagement::findColony(int colonyId){
+Colony *ColonyManagement::findColony(int colonyId){
     while(true){
-        Colony myColony("Default", -1);
-        bool isFinded = 0;
-        for(const auto &colony : colonies){
+        for(auto &colony : colonies){
             if(colony.getColonyId() == colonyId){
-                myColony = colony;
-                isFinded = 1;
+                return &colony;
             }
         }
 
-        if(!isFinded){
-            bool exit;
-            std::cout << "Please enter a valid colony id.\n"
-            std::cout << "Press enter 1 for exit or press 0 to try again: ";
-            std::cin >> exit;
-            if(exit){
-                break
-            }else{
-
-            }
-
+        bool exit;
+        std::cout << "Please enter a valid colony id.\n";
+        std::cout << "Press enter 1 for exit or press 0 to try again: ";
+        std::cin >> exit;
+        if(exit){
+            break;
         }else{
-            return &myColony;
+            std::cin >> colonyId;
         }
-
-        
     }
+    return nullptr;
 }

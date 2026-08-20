@@ -21,21 +21,6 @@ std::string Colony::getColonyName() const{
 }
     
 void Colony::addAstronaut(int id, std::string &name, int age, int experience){
-    std::cout << "========================================================================\n";
-    std::cout << "Please enter astronaut's id: ";
-    std::cin >> id;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cout << "========================================================================\n";
-    std::cout << "Please enter astronaut's name: ";
-    std::getline(std::cin, name);
-    std::cout << "========================================================================\n";
-    std::cout << "Please enter astronaut's age: ";
-    std::cin >> age;
-    std::cout << "========================================================================\n";
-    std::cout << "Please enter astronaut's experience level: ";
-    std::cin >> experience;
-    std::cout << "========================================================================\n";
-
     std::cout << "Adding an astronaut...\n";
 
     Astronaut newAstronaut(id, name, age, experience);
@@ -45,21 +30,6 @@ void Colony::addAstronaut(int id, std::string &name, int age, int experience){
 }
 
 void Colony::addRover(int carId, std::string &model, float energyLevel, bool isActive){
-    std::cout << "========================================================================\n";
-    std::cout << "Please enter rover's id: ";
-    std::cin >> carId;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cout << "========================================================================\n";
-    std::cout << "Please enter rover's model: ";
-    std::getline(std::cin, model);
-    std::cout << "========================================================================\n";
-    std::cout << "Please enter rover's energy level: ";
-    std::cin >> energyLevel;
-    std::cout << "========================================================================\n";
-    std::cout << "Please enter rover's situation (Active or not): ";
-    std::cin >> isActive;
-    std::cout << "========================================================================\n";
-
     std::cout << "Adding a rover...\n";
 
     Rover newRover(carId, model, energyLevel, isActive);
@@ -135,3 +105,29 @@ void Colony::updateSource(){
     }
 }
 
+Astronaut *Colony::findAstronaut(int astronautId) {
+    for(auto &astronaut : astronauts){
+        if(astronaut.getAstronautId() == astronautId){
+            return &astronaut;
+        }
+    }
+    return nullptr;
+}
+
+Rover *Colony::findRover(int roverId){
+    for (auto &rover : rovers){
+        if(rover.getRoverId() == roverId){
+            return &rover;
+        }
+    }
+    return nullptr;
+}
+
+Resource *Colony::findSource(int sourceId){
+    for (auto &source : resourceManager.getSources()){
+        if(source.getSourceId() == sourceId){
+            return &source;
+        }
+    }
+    return nullptr;
+}

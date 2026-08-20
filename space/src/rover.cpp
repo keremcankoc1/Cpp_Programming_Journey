@@ -29,4 +29,19 @@ void Rover::infoSituation(){
     std::cout << "Situation: " << SituationToString(translateSituation(isActive)) << '\n';
 }
 
+int Rover::getRoverId(){
+    return carId;
+}
+
+float Rover::getRoverEnergyLevel(){
+    return energyLevel;
+}
+
+bool Rover::getRoverActivate(){
+    return isActive;
+}
+
+std::string Rover::getRoverModel(){
+    return model;
+}
 
