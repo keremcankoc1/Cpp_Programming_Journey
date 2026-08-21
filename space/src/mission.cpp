@@ -11,10 +11,11 @@ MissionType Mission::intToMissionType(int missionType){
     }
 }
 
-Mission::Mission(const std::string &missionName, int missionType, int diffLevel)
+Mission::Mission(const std::string &missionName, int missionType, int diffLevel, int missionId)
     : missionName(missionName),
       missionType(intToMissionType(missionType)),
-      diffLevel(diffLevel)
+      diffLevel(diffLevel),
+      missionId(missionId)
 {}
 
 std::string Mission::MissionTypeToString(MissionType missionType) const{
@@ -29,6 +30,11 @@ std::string Mission::MissionTypeToString(MissionType missionType) const{
 
 void Mission::showMissionData() const{
     std::cout << "Mission name: " << missionName << '\n';
+    std::cout << "Mission id: " << missionId << '\n';
     std::cout << "Mission type: " << MissionTypeToString(missionType) << '\n';
     std::cout << "Difficulty level: " << diffLevel << '\n';
+}
+
+int Mission::getMissionId(){
+    return missionId;
 }

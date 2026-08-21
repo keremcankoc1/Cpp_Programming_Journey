@@ -6,16 +6,16 @@ class Rover{
     private:
         int carId;
         std::string model;
-        float energyLevel;
+        int energyLevel;
         bool isActive;
     public:
-        Rover(int carId, const std::string &model, float energyLevel, bool isActive);
-        float setEnergyLevel(float amount);
+        Rover(int carId, const std::string &model, int energyLevel, bool isActive);
+        int setEnergyLevel(int &amount);
         void infoSituation();
         void doMission();
 
         int getRoverId();
         std::string getRoverModel();
         bool getRoverActivate();
-        float getRoverEnergyLevel();
+        int getRoverEnergyLevel();
 };

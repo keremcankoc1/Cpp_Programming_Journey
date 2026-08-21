@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <limits>
+#include <numeric>
 #include "../headers/colony.hpp"
 #include "../headers/astronaut.hpp"
 #include "../headers/rover.hpp"
@@ -29,6 +30,15 @@ void Colony::addAstronaut(int id, std::string &name, int age, int experience){
     std::cout << "An astronaut has been added.\n";
 }
 
+void Colony::editAstronaut(int amount, Astronaut *astronaut){
+    std::cout << "Editing an astronaut...\n";
+
+    astronaut->setAstronautExperience(amount);
+
+    std::cout << "Astronaut has been edited. New experience: " << astronaut->getAstronautExperience() << '\n';
+
+}
+
 void Colony::addRover(int carId, std::string &model, float energyLevel, bool isActive){
     std::cout << "Adding a rover...\n";
 
@@ -37,9 +47,59 @@ void Colony::addRover(int carId, std::string &model, float energyLevel, bool isA
 
     std::cout << "A rover has been added.\n";
 }
+
+void Colony::editRover(int amount, Rover *rover){
+    std::cout << "Editing a rover...\n";
+
+    rover->setEnergyLevel(amount);
+
+    std::cout << "Rover has been edited. New energy level: " << rover->getRoverEnergyLevel() << '\n';
+}
+
+void Colony::addSource(){
+    int sourceId, sourceAmount;
+    std::string sourceName;
+
+    std::cout << "Please enter source Id: ";
+    std::cin >> sourceId;
+
+    std::cin.ignore();
+
+    std::cout << "Please enter source's name: ";
+    std::getline(std::cin, sourceName);
+
+    std::cout << "Please enter source's amount: ";
+    std::cin >> sourceAmount;
+
+    std::cout << "Source is adding...\n";
+    resourceManager.addSource(sourceName, sourceAmount, sourceId);
+    std::cout << "Source adding is successful.\n";
+}
+
+void Colony::seeSource(){
+    int choose;
+    std::cout << "What action would you like to take: ";
+    std::cin >> choose;
+
+    switch(choose){
+        case 1: resourceManager.showSourceData();
+            break;    
+    case 2:
+    {
+        int sourceId;
+        std::cout << "Please enter source Id: ";
+        std::cin >> sourceId;
+
+        resourceManager.showOneSource(sourceId);
+    } 
+        break;
+    default: std::cout << "Please enter a valid process.\n";
+        break;
+    }
+}
+
 void Colony::updateSource(){
     int choose;
-    std::cout << "1) Source Increase | 2) Source Reduce | 3) Add Source | 4) View all resources | 5) View one source\n";
     std::cout << "What action would you like to take: ";
     std::cin >> choose;
 
@@ -70,39 +130,16 @@ void Colony::updateSource(){
             resourceManager.sourceReduce(sourceId, reduceAmount);
         } 
             break;
-        case 3:
-        {
-            int sourceId, sourceAmount;
-            std::string sourceName;
-
-            std::cout << "Please enter source Id: ";
-            std::cin >> sourceId;
-
-            std::cin.ignore();
-
-            std::cout << "Please enter source's name: ";
-            std::getline(std::cin, sourceName);
-
-            std::cout << "Please enter source's amount: ";
-            std::cin >> sourceAmount;
-
-            resourceManager.addSource(sourceName, sourceAmount, sourceId);
-        }
-            break;
-        case 4: resourceManager.showSourceData();
-            break;    
-        case 5:
-        {
-            int sourceId;
-            std::cout << "Please enter source Id: ";
-            std::cin >> sourceId;
-
-            resourceManager.showOneSource(sourceId);
-        } 
-            break;
         default: std::cout << "Please enter a valid process.\n";
-            break;        
     }
+}
+
+void Colony::addMission(std::string &missionName, int missionType, int diffLevel, int missionId){
+    std::cout << "Please wait. Mission is adding...\n";
+    Mission newMission(missionName, missionType, diffLevel, missionId);
+    missions.push_back(newMission);
+    std::cout << "Mission adding process is successfull.\n";
+    
 }
 
 Astronaut *Colony::findAstronaut(int astronautId) {
@@ -127,6 +164,15 @@ Resource *Colony::findSource(int sourceId){
     for (auto &source : resourceManager.getSources()){
         if(source.getSourceId() == sourceId){
             return &source;
+        }
+    }
+    return nullptr;
+}
+
+Mission *Colony::findMission(int missionId){
+    for(auto &mission : missions){
+        if(mission.getMissionId() == missionId){
+            return &mission;
         }
     }
     return nullptr;

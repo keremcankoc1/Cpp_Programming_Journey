@@ -13,9 +13,11 @@ class Mission{
         std::string missionName;
         MissionType missionType;
         int diffLevel;
+        int missionId;
     public:
-        Mission(const std::string &missionName, int missionType, int diffLevel);
+        Mission(const std::string &missionName, int missionType, int diffLevel, int missionId);
         void showMissionData() const;
         MissionType intToMissionType(int missionType);
         std::string MissionTypeToString(MissionType missionType) const;
+        int getMissionId();
 };

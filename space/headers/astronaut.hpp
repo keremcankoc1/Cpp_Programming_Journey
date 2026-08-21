@@ -11,10 +11,10 @@ class Astronaut{
     public:
         Astronaut(int id, const std::string &name, int age, int experience);
         void showAstronautInfo() const;
-        int setAstronautExperience(int amount);
+        int setAstronautExperience(int &amount);
 
         int getAstronautId();
         int getAstronautAge();
-        int getAstronautName();
+        std::string getAstronautName();
         int getAstronautExperience();
 };

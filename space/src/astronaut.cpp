@@ -32,7 +32,7 @@ int Astronaut::getAstronautExperience(){
     return experience;
 }
 
-int Astronaut::setAstronautExperience(int amount){
+int Astronaut::setAstronautExperience(int &amount){
     experience += amount;
     return experience;
 }

@@ -15,7 +15,7 @@ std::string SituationToString(Situation sit){
     return (sit == Situation::Active) ? "Active" : "Passive";
 }
 
-Rover::Rover(int carId, const std::string &model, float energyLevel, bool isActive)
+Rover::Rover(int carId, const std::string &model, int energyLevel, bool isActive)
     :carId(carId),
     model(model),
     energyLevel(energyLevel),
@@ -33,7 +33,7 @@ int Rover::getRoverId(){
     return carId;
 }
 
-float Rover::getRoverEnergyLevel(){
+int Rover::getRoverEnergyLevel(){
     return energyLevel;
 }
 
@@ -45,3 +45,7 @@ std::string Rover::getRoverModel(){
     return model;
 }
 
+int Rover::setEnergyLevel(int &amount){
+    energyLevel += amount;
+    return energyLevel;
+}
